@@ -1,0 +1,2 @@
+# ts-note
+TypeScript
