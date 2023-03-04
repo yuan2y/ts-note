@@ -30,14 +30,8 @@ notSure = null;
 
 // unknown 为了防止过于开放的any，避免一些程序上的错误，推出unknown（未知）
 let unk2:unknown = 'abc'; 
-<<<<<<< HEAD
 let testUnk:any = unk2; // 能将类型unknown 分配给 any
 // let testNun2:number = unk2; // 不能将类型 unknown 分配给类型 number
-=======
-// 特例
-let testUnk:any = unk2;
-// let testNun2:number = unk2; // 不能将类型“unknown”分配给类型“number”
->>>>>>> 0d44fe049d55a8b96ef23b26c9189e88388ec5ef
 // 场景:判断后，编译器动态分析
 if (typeof unk2 === 'string') {
     let testStr2:string = unk2;
@@ -156,7 +150,6 @@ fn4(1,'b');
 ## 接口
 
 ```ts
-<<<<<<< HEAD
 // 1.接口定义对象
 interface IPerson {
   id: number;
@@ -267,51 +260,6 @@ teach.say('hi');
 teach.eat('food')
 teach.showName()
 
-=======
-interface Person {
-  eat(food:string):void;
-}
-// 接口复用：接口可以集成接口(单继承)
-interface Person2 extends Person {
-  name: string;
-  arr?: number[], // ?可选的
-  readonly age: number; // readonly只读
-  fn(p1: number): void
-}
-
-let obj: Person2 = {
-  name: 'Sum', 
-  arr: [1], 
-  age: 36,
-  fn: function (num: number) {
-      console.log('调用', num);
-  },
-  eat: function (food: string): void {
-      console.log('在吃...',food)
-  }
-};
-// obj.age = 122; // 无法为“age”赋值，因为它是只读属性
-console.log(obj);
-console.log(obj.fn(1));
-console.log(obj.eat('米饭'));
-
-// 可以多实现 : 实现接口中未实现的方法和属性 (类实现接口)
-class Person2Class implements Person2{
-  arr?: number[] | undefined;
-  age: number = 18;
-  name:string = 'Green';
-  fn(p1: number): void {
-      console.log('方法fn')
-  }
-  eat(food: string): void {
-      console.log('方法eat')
-  }
-}
-let person2Class = new Person2Class();
-console.log(person2Class.age);
-console.log(person2Class.fn(1));
-console.log(person2Class.eat('米饭'));
->>>>>>> 0d44fe049d55a8b96ef23b26c9189e88388ec5ef
 ```
 
 
@@ -325,13 +273,8 @@ class Animal {
   public readonly name:string; // 公开的
   private age:number; // 私有的 只能自己访问
   protected  color:string = 'white'; // 受保护的 只能自己和子类访问
-<<<<<<< HEAD
   readonly isSkill:boolean = true; // 只读的,不可修改
   static staticTest:number = 1; // 静态的属性  需要在staticTest前面加上类进行访问，无法使用this
-=======
-  readonly isSkill:boolean = true; // 只读的
-  static staticTest:number = 1; // 静态的  每个实例想要访问这个属性的时候，都要在staticTest前面加上类名。
->>>>>>> 0d44fe049d55a8b96ef23b26c9189e88388ec5ef
   constructor(name:string,age:number){
       this.name = name;
       this.age = age;
@@ -342,11 +285,7 @@ class Animal {
   showAnimal2(){
       console.log(Animal.staticTest,this.isSkill);
   }
-<<<<<<< HEAD
   // static 静态方法 属于类的属性
-=======
-  // 属于类的属性
->>>>>>> 0d44fe049d55a8b96ef23b26c9189e88388ec5ef
   static staticShow(){
       console.log('staticShow')
   }
@@ -357,15 +296,9 @@ console.log(animal.name,'默认作用域直接访问');
 animal.showAnimal();
 Animal.staticShow();
 console.log(Animal.staticTest)
-<<<<<<< HEAD
 // console.log(animal.age); // 属性age为私有属性，只能在类Animal中访问
 
 //类的继承 子类Dog 继承 父类Animal
-=======
-// console.log(animal.age); // 属性“age”为私有属性，只能在类“Dog”中访问
-
-// 子类Dog 继承 父类Animal
->>>>>>> 0d44fe049d55a8b96ef23b26c9189e88388ec5ef
 class Dog extends Animal {
   constructor(){
       super('小白',18);
@@ -377,7 +310,6 @@ class Dog extends Animal {
 }
 let dog = new Dog();
 dog.showAnimal(); // 同名就近调用
-<<<<<<< HEAD
 dog.showAnimal2(); // 不同名就使用父类方法
 
 ```
@@ -485,10 +417,3 @@ console.log(res51,res52);
 
 
 
-=======
-dog.showAnimal2(); // 父类方法
-
-
-```
-
->>>>>>> 0d44fe049d55a8b96ef23b26c9189e88388ec5ef
